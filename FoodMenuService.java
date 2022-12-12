@@ -5,18 +5,19 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.database.onlinefood.entity.FoodMenu;
-import com.database.onlinefood.repository.FoodMenuRepository;
+import com.database.onlinefood.entity.Menu;
+import com.database.onlinefood.repository.MenuRepository;
 
 @Service
-public class FoodMenuService {
-	
-	@Autowired
-	FoodMenuRepository foodrepo;
+public class MenuService {
 
-	public List<FoodMenu> getAllMenuList() {
-		
-		return foodrepo.findAll();
+	@Autowired
+	private MenuRepository menurepo;
+
+	public List<Menu> showMenuCard() {
+	
+		return menurepo.findAll();
 	}
 	
+
 }
