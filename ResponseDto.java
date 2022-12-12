@@ -1,18 +1,18 @@
 package com.database.onlinefood.dto;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
-public class ResponseDto {
+@AllArgsConstructor
+@ToString
+public class ResponseOrderDto {
 	
-	private double amount;
-	private int invoiceNumber;
-	private String date;
-	private String description;
-	private int orderId;
-	
+	private double totalamount;
+	private Integer invoicenumber;
+	private String suggestion;
+	private Integer orderid;
+
 }
