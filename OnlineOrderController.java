@@ -80,4 +80,22 @@ public class OnlineFoodController {
 		orderservice.cancelOrder(orderid);
 		return "Your Order has Been cancelled and Removed from Cart";
 	}
+	
+	@GetMapping("/loginPage")
+	public LoginToken authenticateCredentials(@RequestBody LoginRequest request) throws Exception
+	{
+		try {
+		manager.authenticate(
+				new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword()));
+		}
+		catch (Exception e) {
+			throw new Exception("Cannot Find the UserName");
+		}
+		UserDetails userDetails=userService.loadUserByUsername(request.getUsername());
+		String loginToken=tokenUtil.generateToken(userDetails);
+		
+		return new LoginToken(loginToken);
+		
+	}
+	
 }
